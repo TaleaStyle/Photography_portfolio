@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminbestätigung</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar header-navbar">
+    <div class="navbar-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-camera2"
+            viewBox="0 0 16 16" aria-label="Camera Icon">
+            <path
+                d="M5 8c0-1.657 2.343-3 4-3V4a4 4 0 0 0-4 4zM12.318 3h2.015C15.253 3 16 3.746 16 4.667v6.666c0 .92-.746 1.667-1.667 1.667h-2.015A5.97 5.97 0 0 1 9 14a5.97 5.97 0 0 1-3.318-1H1.667C.747 13 0 12.254 0 11.333V4.667C0 3.747.746 3 1.667 3H2a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1h.682A5.97 5.97 0 0 1 9 2c1.227 0 2.367.368 3.318 1zM2 4.5a.5.5 0 1 0-1 .001a.5.5 0 0 0 .999-.001zM14 8A5 5 0 1 0 4 8a5 5 0 0 0 10 0z" />
+        </svg>
+        <div class="navbar-brand">Let's Shoot!</div>
+    </div>
+    <!-- Hamburger-Menü für Mobilgeräte -->
+    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+        &#9776;
+      </button>
+
+      <!-- Navigations-Links -->
+      <ul class="navbar-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Naechste_schritte.html">Fotoausstellung</a></li>
+        <li><a href="about.html">Über mich</a></li>
+        <li><a href="prices.html">Preise</a></li>
+        <li><a href="book.html">Termin buchen</a></li>
+         </ul>
+
+</nav>
+
+
+<div class="main-container">
+  <div class="confirmation-container">
+
+      <section class="info-image-text-container-layout">
+          <h3>Terminbestätigung</h3>
+          <h4>Bitte überprüfe deine Angaben:</h4>
+          <div class="details">
+              <p><strong>Vorname:</strong> <span id="vorname"></span></p>
+              <p><strong>Nachname:</strong> <span id="nachname"></span></p>
+              <p><strong>Datum:</strong> <span id="date"></span></p>
+              <p><strong>Uhrzeit:</strong> <span id="time"></span></p>
+              <p><strong>E-Mail:</strong> <span id="email"></span></p>
+              <p><strong>phoneNumber:</strong> <span id="phone"></span></p>
+              <p><strong>Nachricht:</strong> <span id="message"></span></p>
+          </div>
+          <button  onclick="window.history.back()">Zurück</button>
+          <button onclick="confirmAppointment()">Bestätigen</button>
+          </div>
+         
+      </section>
+
+  </div>
+</div>
+
+    <script>
+      function getQueryParams() {
+          const params = new URLSearchParams(window.location.search);
+          document.getElementById("vorname").textContent = params.get("vorname") || "-";
+          document.getElementById("nachname").textContent = params.get("nachname") || "-";
+          document.getElementById("date").textContent = params.get("date") || "-";
+          document.getElementById("time").textContent = params.get("time") || "-";
+          document.getElementById("email").textContent = params.get("email") || "-";
+          document.getElementById("phone").textContent = params.get("phone") || "-";
+          document.getElementById("message").textContent = params.get("message") || "-";
+      }
+      
+      function confirmAppointment() {
+          alert("Ihr Termin wurde erfolgreich bestätigt!");
+          window.location.href = "home.html"; // Zurück zur Startseite
+      }
+      
+      window.onload = getQueryParams;
+  </script>
+</body>
+</html>
